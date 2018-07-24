@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS students;
+
 DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS students;
 DROP SEQUENCE IF EXISTS global_seq_stud;
 DROP SEQUENCE IF EXISTS global_seq_book;
 
