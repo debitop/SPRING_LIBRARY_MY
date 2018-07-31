@@ -4,6 +4,7 @@ import app.library.model.Student;
 import app.library.repository.StudentRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
 
+    @Autowired
     SessionFactory sessionFactory;
 
     @Override
@@ -36,11 +38,17 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public void editStudent(Student student) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Student studentOld = session.get(Student.class, student.getId());
+        studentOld.setName(student.getName());
+        studentOld.setAge(student.getAge());
+        studentOld.setAdmin(student.getAdmin());
+        session.merge(studentOld);
     }
 
     @Override
     public Student getStudentById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Student.class, id);
     }
 }
