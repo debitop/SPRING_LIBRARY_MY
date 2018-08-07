@@ -20,6 +20,9 @@
         <td>age</td>
         <td>admin</td>
         <td>Date</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <c:forEach var="student" items="${students}">
         <tr>
@@ -28,13 +31,14 @@
             <td><c:out value="${student.age}"/></td>
             <td><c:out value="${student.admin}"/></td>
             <td><c:out value="${student.createddate}"/></td>
+            <td><a href="/student/del/${student.id}">Delete</a> </td>
+            <td><a href="/student/edit/${student.id}">Update</a> </td>
+            <td><a href="/book/${student.id}">List books</a> </td>
         </tr>
-
-
     </c:forEach>
-
-
 </table>
+
+<a href="/student/add">Create Student</a>
 
 </body>
 </html>
