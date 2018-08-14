@@ -1,11 +1,15 @@
 package app.library.model;
 
 
+import org.hibernate.sql.Delete;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Table(name = "students")
+@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +27,10 @@ public class Student {
     @Column(name = "createddate")
     @NotNull
     private Timestamp createddate;
+    
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "student")
+    private List<Book> books;
+    
 
     public int getId() {
         return id;
@@ -30,6 +38,14 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public String getName() {
