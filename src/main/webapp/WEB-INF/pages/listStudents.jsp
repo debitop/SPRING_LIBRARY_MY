@@ -33,7 +33,7 @@
             <td><c:out value="${student.createddate}"/></td>
             <td><a href="/student/del/${student.id}">Delete</a> </td>
             <td><a href="/student/edit/${student.id}">Update</a> </td>
-            <td><a href="/book/${student.id}">List books</a> </td>
+            <td><a href="/book/listbook/${student.id}">List books</a> </td>
         </tr>
     </c:forEach>
 </table>

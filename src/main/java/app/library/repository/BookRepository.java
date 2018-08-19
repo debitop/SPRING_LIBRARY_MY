@@ -8,7 +8,7 @@ public interface BookRepository {
     
     public void removeBook(int bookId);
     
-    public void addBook(Book book);
+    public void addBook(Book book, Integer studentId);
     
     public  void editBook(Book book);
     

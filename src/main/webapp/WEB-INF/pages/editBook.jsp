@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Саша
@@ -11,6 +12,21 @@
     <title>Title</title>
 </head>
 <body>
+
+<form:form method="post" action="/book/editBook/${bookAttribute.id}" modelAttribute="bookAttribute">
+    <table>
+        <tr>
+            <td><form:label path="id"></form:label></td>
+            <td><form:input path="id" disabled="true"></form:input></td>
+        </tr>
+        <tr>
+            <td></td>
+
+        </tr>
+
+    </table>
+
+</form:form>
 
 </body>
 </html>

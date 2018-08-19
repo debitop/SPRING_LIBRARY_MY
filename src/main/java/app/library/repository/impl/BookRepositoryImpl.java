@@ -1,6 +1,7 @@
 package app.library.repository.impl;
 
 import app.library.model.Book;
+import app.library.model.Student;
 import app.library.repository.BookRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,8 +25,9 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public void addBook(Book book) {
+    public void addBook(Book book, Integer studentId) {
         Session session = sessionFactory.getCurrentSession();
+        book.setStudent(session.get(Student.class, studentId));
         session.persist(book);
     }
 
