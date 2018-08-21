@@ -34,7 +34,7 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public String addStudent(@RequestParam("name") String name, @RequestParam("age") String age,
-                             @RequestParam("admin") Boolean admin) {
+                             @RequestParam(value = "admin", defaultValue = "FALSE") Boolean admin) {
         Student student = new Student();
         student.setName(name);
         student.setAge(Integer.parseInt(age));
@@ -58,7 +58,7 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/edit/{id}")
     public String updateStudent(@PathVariable(value = "id") Integer id, @RequestParam("name") String name,
-                                @RequestParam("age") String age, @RequestParam("admin") Boolean admin) {
+                                @RequestParam("age") String age, @RequestParam(value = "admin", defaultValue = "FALSE") Boolean admin) {
         Student student = studentRepository.getStudentById(id);
         student.setAdmin(admin);
         student.setAge(Integer.parseInt(age));

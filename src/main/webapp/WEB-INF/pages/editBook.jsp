@@ -16,16 +16,23 @@
 <form:form method="post" action="/book/editBook/${bookAttribute.id}" modelAttribute="bookAttribute">
     <table>
         <tr>
-            <td><form:label path="id"></form:label></td>
+            <td><form:label path="id">Id</form:label></td>
             <td><form:input path="id" disabled="true"></form:input></td>
         </tr>
         <tr>
-            <td></td>
-
+            <td><form:label path="name">Name</form:label></td>
+            <td><form:input path="name"></form:input></td>
         </tr>
-
+        <tr>
+            <td><form:label path="pages">Pages</form:label></td>
+            <td><form:input path="pages"></form:input></td>
+        </tr>
+        <tr>
+            <td><form:label path="author">Author</form:label></td>
+            <td><form:input path="author"></form:input></td>
+        </tr>
     </table>
-
+    <input type="submit" value="OK">
 </form:form>
 
 </body>

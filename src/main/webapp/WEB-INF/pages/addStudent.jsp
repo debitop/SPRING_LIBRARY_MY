@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td>Admin</td>
-            <td><input type="checkbox" name="admin"></td>
+            <td><input type="checkbox" name="admin" ></td>
         </tr>
     </table>
     <input type="submit" value="Submit">

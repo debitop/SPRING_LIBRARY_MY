@@ -28,7 +28,7 @@
             <td><form:input path="age"></form:input></td>
         </tr>
         <tr>
-            <td><form:checkbox path="admin">Admin</form:checkbox></td>
+            <td>Admin?<form:checkbox path="admin"></form:checkbox></td>
         </tr>
     </table>
     <input type="submit" value="Submit">

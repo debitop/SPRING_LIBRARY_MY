@@ -19,8 +19,9 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{studentId}")
-    public String getBookById(int studentId, Model model) {
+
+    @RequestMapping(method = RequestMethod.GET, value = "/listbook/{studentId}")
+    public String getBookById(@PathVariable("studentId") Integer studentId, Model model) {
         List<Book> books = bookRepository.getAllBooksByUserId(studentId);
         model.addAttribute("books", books);
         model.addAttribute("studentId", studentId);
@@ -28,7 +29,8 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/addBook/{studentId}")
-    public String addBook(int studentId) {
+    public String addBook(@PathVariable("studentId") Integer studentId, Model model) {
+        model.addAttribute("studentId", studentId);
         return "addBook";
     }
 
@@ -40,7 +42,7 @@ public class BookController {
         book.setName(name);
         book.setPages(pages);
         bookRepository.addBook(book, studentId);
-        return "redirect:/book/{studentId}";
+        return "redirect:/book/listbook/{studentId}";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/deleteBook/{id}")
@@ -48,7 +50,7 @@ public class BookController {
         Integer studentId = bookRepository.getBookById(id).getStudent().getId();
         model.addAttribute("studentId", studentId);
         bookRepository.removeBook(id);
-        return "redirect:/book/{studentId}";
+        return "redirect:/book/listbook/{studentId}";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/editBook/{id}")
