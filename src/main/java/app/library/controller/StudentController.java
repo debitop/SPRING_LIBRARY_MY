@@ -31,7 +31,6 @@ public class StudentController {
         return "addStudent";
     }
 
-
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public String addStudent(@RequestParam("name") String name, @RequestParam("age") String age,
                              @RequestParam(value = "admin", defaultValue = "FALSE") Boolean admin) {
@@ -66,6 +65,4 @@ public class StudentController {
         studentRepository.editStudent(student);
         return "redirect:/student/";
     }
-
-
 }
